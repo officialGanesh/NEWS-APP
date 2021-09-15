@@ -76,8 +76,21 @@ document.querySelector('#filterResults').addEventListener('input',function(e){
         }
         
     });
-
-
 });
+
+// Display various options for search
+
+let optSearch = () =>{
+    
+    let placeHolder = document.getElementById('filterResults');
+    let placeHolders = ["Author","Headline","Desc"]
+
+    setInterval(() => {
+        placeHolder.placeholder = `Search by: ${placeHolders[Math.floor(Math.random()*3)]}`;
+    }, 3000);
+
+};
+
+optSearch();
 
 
