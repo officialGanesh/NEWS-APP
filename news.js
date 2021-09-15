@@ -23,18 +23,19 @@ let firstEndPoint_Everything = (key) => {
                 newsOBJ = JSON.parse(this.responseText).articles;
                 newsOBJ.forEach((e)=>{
                     let element = document.createElement('div');
-                    
-                    let html = `<div class="card" style="width: 21rem; margin: 8px; border-radius: 13px;">
-                                    <img src="${e.urlToImage}" class="card-img-top" alt="No Image Available">
+                    element.className = "card";
+                    element.style.cssText = `width: 24rem; margin: 8px; border-radius: 13px;`
+                    let html = `
+                                    <img src="${e.urlToImage}" class="card-img-top" alt="No Image Available" style="margin-top:10px;">
                                     <div class="card-body">
                                     <h5 class="card-title">${e.title}</h5>
                                     <hr>
                                     <p class="card-text" style="font-family:Roboto mono; padding: 2px;">${e.description}</p>
-                                    <p class="card-text" style="font-family:Roboto mono; padding: 2px;">Author: ${e.author}</p>
+                                    <p class="card-text author" style="font-family:Roboto mono; padding: 2px;">Author: ${e.author}</p>
                                     
                                     <a href="${e.url}" target="_blank" class="btn btn-primary" style="font-family: 'Roboto mono'; padding: 8px;">Read Full Article</a>
                                     </div>
-                                </div>`
+                                `
                     element.innerHTML = html;           
                     newsBox.append(element);
                 });
@@ -50,3 +51,33 @@ let firstEndPoint_Everything = (key) => {
 };
 
 firstEndPoint_Everything(API_KEY);
+
+
+// filter news
+document.querySelector('#filterResults').addEventListener('input',function(e){
+
+    e.preventDefault();
+
+    querySearched = e.target.value.toLowerCase();
+    let newsBox = document.querySelector('#box');
+
+    Array.from(newsBox.querySelectorAll('.card')).forEach((el)=>{
+
+        let newsTitle = el.querySelector('.card-title').innerText.toLowerCase();
+
+        let newsDesc = el.querySelector('.card-text').innerText.toLowerCase();
+
+        let Author = el.querySelector('.author').innerText.toLowerCase();
+
+        if((newsTitle.includes(querySearched))||newsDesc.includes(querySearched) || (Author.includes(querySearched))){
+            el.style.display = "block"
+        }else{
+            el.style.display = "none";
+        }
+        
+    });
+
+
+});
+
+
