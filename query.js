@@ -1,16 +1,19 @@
 console.log("Daily News 🚀");
 
-let API_KEY = "Your api key";
+let API_KEY = "eea9b05d1ea84a5f8ce1a2ffe3e09efb";
 
-// Trying first end-point for everything
-// https://newsapi.org/v2/everything?q=bitcoin&apiKey=API_KEY
+/*
+ Trying  end-point for everything
+ https://newsapi.org/v2/everything?q=bitcoin&apiKey=API_KEY
+*/
+
+
 
 let firstEndPoint_Everything = (key) => {
 
     let xhr = new XMLHttpRequest();
-    let query = "ps5"
+    let query = "tesla"
     endPoint1 = `https://newsapi.org/v2/everything?q=${query}&apiKey=${key}`;
-
     xhr.open('GET',endPoint1,true);
     xhr.onload = function(){
 
@@ -40,7 +43,7 @@ let firstEndPoint_Everything = (key) => {
                     newsBox.append(element);
                 });
     
-            }else{
+            }else{          
                 console.log('Something went wrong 💢');
             }
         },2000);
