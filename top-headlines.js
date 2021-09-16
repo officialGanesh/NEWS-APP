@@ -9,7 +9,7 @@ Trying for headlines in the particular country
 
 console.log("Daily News 🚀");
 
-let API_KEY = "eea9b05d1ea84a5f8ce1a2ffe3e09efb";
+let API_KEY = "Your api key";
 
 let topHeadlines = (key) => {
 

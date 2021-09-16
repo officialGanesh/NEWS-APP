@@ -1,13 +1,11 @@
 console.log("Daily News 🚀");
 
-let API_KEY = "eea9b05d1ea84a5f8ce1a2ffe3e09efb";
+let API_KEY = "Your api key";
 
 /*
  Trying  end-point for everything
  https://newsapi.org/v2/everything?q=bitcoin&apiKey=API_KEY
 */
-
-
 
 let firstEndPoint_Everything = (key) => {
 
